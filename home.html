@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Todos os Jogos</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        .filtros {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .filtro-btn {
+            padding: 0.5rem 1.5rem;
+            background: rgba(255,255,255,0.2);
+            color: #fff;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filtro-btn:hover,
+        .filtro-btn.active {
+            background: #ffd700;
+            border-color: #ffd700;
+            color: #333;
+        }
+        
+        .categoria {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            background: #667eea;
+            color: #fff;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-left: 1rem;
+        }
+        
+        .jogos-page {
+            padding-top: 80px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <!-- Mesmo header do index.html -->
+    </header>
+    
+    <main class="jogos-page">
+        <section class="destaques">
+            <h2>Todos os Jogos</h2>
+            
+            <div class="filtros">
+                <button class="filtro-btn active" onclick="filtrarJogos('todos')">Todos</button>
+                <button class="filtro-btn" onclick="filtrarJogos('Ação')">Ação</button>
+                <button class="filtro-btn" onclick="filtrarJogos('Estratégia')">Estratégia</button>
+                <button class="filtro-btn" onclick="filtrarJogos('Esportes')">Esportes</button>
+                <button class="filtro-btn" onclick="filtrarJogos('Puzzle')">Puzzle</button>
+            </div>
+            
+            <div id="todos-jogos-container" class="jogos-container">
+                <!-- Jogos serão carregados aqui -->
+            </div>
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Mesmo footer do index.html -->
+    </footer>
+    
+    <script src="script.js"></script>
+    <script>
+        // Ativar botão de filtro ativo
+        document.querySelectorAll('.filtro-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.filtro-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
